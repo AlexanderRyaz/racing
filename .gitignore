@@ -1,5 +1,8 @@
 ### IntelliJ IDEA ###
 out/
+.idea/
+racing-master.iml/
+racing.iml/
 !**/src/main/**/out/
 !**/src/test/**/out/
 

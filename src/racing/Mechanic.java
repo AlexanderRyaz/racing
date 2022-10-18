@@ -3,15 +3,16 @@ package racing;
 import racing.transport.Transport;
 import racing.util.TransportType;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Mechanic {
     private final String firstName;
     private final String lastName;
 
     private String company;
-    private List<TransportType> transportTypes = new ArrayList<>();
+    private Set<TransportType> transportTypes = new HashSet<>();
 
     public Mechanic(String firstName, String lastName, String company) {
         this.firstName = firstName;
@@ -35,12 +36,12 @@ public class Mechanic {
         this.company = company;
     }
 
-    public List<TransportType> getTransportTypes() {
+    public Set<TransportType> getTransportTypes() {
         return transportTypes;
     }
 
-    public void setTransportTypes(TransportType transportType) {
-        this.transportTypes.add(transportType);
+    public void setTransportTypes(TransportType... transportTypes) {
+        this.transportTypes.addAll(Arrays.asList(transportTypes));
     }
 
     public void diagnostic(Transport transport) {

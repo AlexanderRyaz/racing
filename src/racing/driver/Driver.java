@@ -66,4 +66,11 @@ public class Driver<T extends Category> {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "name='" + name + '\'' +
+                ", driverLicense=" + driverLicense.getCategory().getSimpleName() +
+                '}';
+    }
 }

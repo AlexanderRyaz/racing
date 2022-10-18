@@ -7,6 +7,7 @@ import racing.driver.Driver;
 import racing.util.TransportType;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class Transport {
@@ -51,9 +52,9 @@ public abstract class Transport {
             this.driver = driver;
         } else if (driverLicenseCategory.equals("D") && this.getTransportType().equals(TransportType.BUS)) {
             this.driver = driver;
-        }else if (driverLicenseCategory.equals("C")&&this.getTransportType().equals(TransportType.TRUCK)){
-            this.driver=driver;
-        }else {
+        } else if (driverLicenseCategory.equals("C") && this.getTransportType().equals(TransportType.TRUCK)) {
+            this.driver = driver;
+        } else {
             throw new RuntimeException("водитель " + driver.getName() + " не может управлять данным авто");
         }
     }
@@ -62,16 +63,16 @@ public abstract class Transport {
         return sponsors;
     }
 
-    public void addSponsors(Sponsor sponsor) {
-        sponsors.add(sponsor);
+    public void addSponsors(Sponsor... sponsors) {
+        this.sponsors.addAll(Arrays.asList(sponsors));
     }
 
     public List<Mechanic> getMechanics() {
         return mechanics;
     }
 
-    public void addMechanics(Mechanic mechanic) {
-        mechanics.add(mechanic);
+    public void addMechanics(Mechanic... mechanics) {
+        this.mechanics.addAll(Arrays.asList(mechanics));
     }
 
     public double getEngineVolume() {
