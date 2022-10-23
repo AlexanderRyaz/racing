@@ -33,7 +33,7 @@ public class Main {
         mechanic1.setTransportTypes(TransportType.TRUCK);
         mechanic2.setTransportTypes(TransportType.BUS, TransportType.TRUCK, TransportType.CAR);
         bus1.setDriver(driver3);
-        bus1.addMechanics(mechanic, mechanic2);
+        bus1.addMechanics(mechanic, mechanic2,mechanic2,mechanic2);
         bus1.addSponsors(sponsor, sponsor2);
         car1.setDriver(driver1);
         car1.addMechanics(mechanic);
