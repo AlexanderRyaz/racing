@@ -5,6 +5,8 @@ import racing.transport.Car;
 import racing.transport.Transport;
 import racing.transport.Truck;
 
+import java.util.Objects;
+
 public class Driver<T extends Category> {
 
     private final String name;
@@ -64,6 +66,20 @@ public class Driver<T extends Category> {
                 throw new RuntimeException("Вадитель с категорией водительского удостоверения "
                         + driverLicense.getCategory().getSimpleName() + " не может управлять автомобилем " + transport.toString());
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return name.equals(driver.name) && driverLicense.equals(driver.driverLicense)
+                && transport.equals(driver.transport);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, driverLicense, transport);
     }
 
     @Override

@@ -5,6 +5,7 @@ import racing.util.TransportType;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Mechanic {
@@ -62,4 +63,17 @@ public class Mechanic {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return firstName.equals(mechanic.firstName) && lastName.equals(mechanic.lastName)
+                && company.equals(mechanic.company) && transportTypes.equals(mechanic.transportTypes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, company, transportTypes);
+    }
 }

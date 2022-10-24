@@ -6,9 +6,7 @@ import racing.driver.Category;
 import racing.driver.Driver;
 import racing.util.TransportType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport {
 
@@ -17,8 +15,8 @@ public abstract class Transport {
     private final double engineVolume;
 
     private Driver<? extends Category> driver;
-    private List<Sponsor> sponsors = new ArrayList<>();
-    private List<Mechanic> mechanics = new ArrayList<>();
+    private Set<Sponsor> sponsors = new HashSet<>();
+    private Set<Mechanic> mechanics = new HashSet<>();
 
 
     public Transport(String brand, String model, double engineVolume) {
@@ -59,7 +57,7 @@ public abstract class Transport {
         }
     }
 
-    public List<Sponsor> getSponsors() {
+    public Set<Sponsor> getSponsors() {
         return sponsors;
     }
 
@@ -67,7 +65,7 @@ public abstract class Transport {
         this.sponsors.addAll(Arrays.asList(sponsors));
     }
 
-    public List<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
     }
 
